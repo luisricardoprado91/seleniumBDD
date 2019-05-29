@@ -12,7 +12,7 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 
-public class AmericanasSteps {
+public class CadastroSteps {
 	Utils utils;
 	HomeObjects homeObjects;
 
@@ -27,19 +27,15 @@ public class AmericanasSteps {
 	@After
 	public void after() {
 		CloseBrowser closeBrowser = new CloseBrowser(utils);
-
 		closeBrowser.doCloseBrowser();
-
 	}
 
-	@Given("Estou na tela inicial")
-	public void estou_na_tela_inicial() {
-		utils.getDriver().get("https://www.americanas.com.br");
+	@Given("I am on home page")
+	public void i_am_on_home_page() {
 	}
 
-	@When("Eu clico no botao CLiente novo? Cadastrar")
-	public void eu_clico_no_botao() {
-
+	@When("I click on buttton Cliente novo? Cadastrar")
+	public void i_click_on_buttton_Cliente_novo_Cadastrar() {
 		homeObjects = new HomeObjects(this.utils);
 		Actions act = new Actions(utils.getDriver());
 		act.moveToElement(homeObjects.getLoginCadastrese()).build().perform();
@@ -47,8 +43,9 @@ public class AmericanasSteps {
 		homeObjects.getCadastreseButton().click();
 	}
 
-	@When("Insiro {string} {string} {string} {string} {string} <telefone> validos")
-	public void insiro_telefone_validos(String string, String string2, String string3, String string4, String string5) {
+	@When("Insiro {string} {string} {string} {string} {string} {string} validos")
+	public void insiro_telefone_validos(String string, String string2, String string3, String string4, String string5,
+			String string6) {
 
 	}
 
@@ -58,6 +55,22 @@ public class AmericanasSteps {
 
 	@Then("Cadastro deve ser concluido com sucesso")
 	public void cadastro_deve_ser_concluido_com_sucesso() {
+	}
+
+	@Given("Que estou na tela de cadastro")
+	public void que_estou_na_tela_de_cadastro() {
+	}
+
+	@When("Eu nao preencho nenhum campo")
+	public void eu_nao_preencho_nenhum_campo() {
+	}
+
+	@Then("Deve apresentar mensagens de cmapos obrigatorios")
+	public void deve_apresentar_mensagens_de_cmapos_obrigatorios() {
+	}
+
+	@Then("The subscribe page must be loaded")
+	public void the_subscribe_page_must_be_loaded() {
 	}
 
 }
