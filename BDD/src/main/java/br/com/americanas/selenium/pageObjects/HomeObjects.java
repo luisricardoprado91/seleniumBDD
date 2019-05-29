@@ -6,21 +6,32 @@ import org.openqa.selenium.WebElement;
 import br.com.americanas.commons.Utils;
 
 public class HomeObjects {
+
 	Utils utils;
+	private WebElement loginCadastrese;
+	private WebElement loginButton;
+	private WebElement cadastreButton;
 
 	public HomeObjects(Utils utils) {
 		this.utils = utils;
 	}
 
-	private WebElement boxAcesso = utils.getDriver().findElement(By.id("h_user"));
-	private WebElement cadastrar = utils.getDriver().findElement(By.xpath("//a[@class='usr-signup']"));
+	public WebElement getLoginCadastrese() {
 
-	public WebElement boxAcesso() {
-		return this.boxAcesso;
+		loginCadastrese = utils.getDriver().findElement(By.id("h_usr-link"));
+		return loginCadastrese;
 	}
 
-	public WebElement cadastrar() {
-		return this.cadastrar;
+	public WebElement getLoginButton() {
+
+		loginButton = utils.getDriver().findElement(By.id("h_usr-signin"));
+		return loginButton;
+
+	}
+
+	public WebElement getCadastreseButton() {
+		cadastreButton = utils.getDriver().findElement(By.xpath("//a[@class='usr-signup']"));
+		return cadastreButton;
 	}
 
 }

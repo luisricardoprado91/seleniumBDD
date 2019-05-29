@@ -6,6 +6,8 @@ public class Objects {
 
 	public Utils utils = new Utils();
 
+	public OpenBrowser openBrowser = new OpenBrowser(utils);
+	public CloseBrowser closeBrowser = new CloseBrowser(utils);
 	public HomeObjects homeObjects = new HomeObjects(utils);
 
 }

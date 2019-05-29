@@ -2,7 +2,7 @@ Feature: Cadastro americanas com sucesso
 
   Scenario Outline: Cadastro
     Given Estou na tela inicial
-    When Eu clico no botão CLiente novo? Cadastrar
+    When Eu clico no botao CLiente novo? Cadastrar
     And Insiro <email> <senha> <cpf> <nome> <nascimento> <telefone> validos
     And Clico no botao
     Then Cadastro deve ser concluido com sucesso
