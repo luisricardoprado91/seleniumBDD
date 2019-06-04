@@ -12,7 +12,7 @@ Scenario: Login with no subscritpion
 	And I fill in the fields 
 	Then Message "Usuário e/ou senha inválidos." must appear 
 	
-		
+	
 Scenario: Login with wrong password 
 	Given I am on home page 
 	When I click on login link 

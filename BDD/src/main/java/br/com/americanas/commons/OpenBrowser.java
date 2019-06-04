@@ -1,6 +1,7 @@
 package br.com.americanas.commons;
 
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class OpenBrowser {
 
@@ -12,17 +13,20 @@ public class OpenBrowser {
 	}
 
 	public void doOpenBrowser() {
-		/*----------------Windows---------------------*/
-		System.setProperty("webdriver.gecko.driver", "lib\\geckodriver.exe");
-		utils.setDriver(new FirefoxDriver());
-		utils.getDriver().manage().window().maximize();
 
-		/*----------------linux--------------*/
-		// ChromeOptions chromeOptions = new ChromeOptions();
-		// utils.setDriver(new ChromeDriver(chromeOptions));
-		// chromeOptions.addArguments("--headless");
-		// chromeOptions.addArguments("--no-sandbox");
-
+		String so = (String) System.getProperties().get("os.name");
+		if (so.contains("Win")) {
+			/*----------------Windows---------------------*/
+			System.setProperty("webdriver.chrome.driver", "lib\\chromedriver.exe");
+			utils.setDriver(new ChromeDriver());
+			utils.getDriver().manage().window().maximize();
+		} else {
+			// *----------------linux--------------*/
+			System.setProperty("webdriver.chrome.driver", "lib\\chromedriver");
+			ChromeOptions chromeOptions = new ChromeOptions();
+			chromeOptions.addArguments("--headless");
+			chromeOptions.addArguments("start-maximized");
+			utils.setDriver(new ChromeDriver(chromeOptions));
+		}
 	}
-
 }
