@@ -32,6 +32,7 @@ public class CadastroSteps {
 
 	@Given("I am on home page")
 	public void i_am_on_home_page() {
+		utils.getDriver().get("https://www.americanas.com.br/");
 	}
 
 	@When("I click on buttton Cliente novo? Cadastrar")

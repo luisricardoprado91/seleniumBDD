@@ -1,7 +1,9 @@
 package br.com.americanas.commons;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class OpenBrowser {
 
@@ -17,16 +19,17 @@ public class OpenBrowser {
 		String so = (String) System.getProperties().get("os.name");
 		if (so.contains("Win")) {
 			/*----------------Windows---------------------*/
-			System.setProperty("webdriver.chrome.driver", "lib\\chromedriver.exe");
+			System.setProperty("webdriver.gecko.driver", "lib\\geckodriver.exe");
 			utils.setDriver(new ChromeDriver());
 			utils.getDriver().manage().window().maximize();
 		} else {
 			// *----------------linux--------------*/
-			System.setProperty("webdriver.chrome.driver", "lib\\chromedriver");
-			ChromeOptions chromeOptions = new ChromeOptions();
-			chromeOptions.addArguments("--headless");
-			chromeOptions.addArguments("start-maximized");
-			utils.setDriver(new ChromeDriver(chromeOptions));
+			System.setProperty("webdriver.gecko.driver", "lib/geckodriver");
+			FirefoxOptions options = new FirefoxOptions();
+			options.setHeadless(true);
+
+			// Instantiate Web Driver
+			utils.setDriver(new FirefoxDriver(options));
 		}
 	}
 }
